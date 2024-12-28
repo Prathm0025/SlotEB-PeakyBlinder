@@ -73,10 +73,10 @@ jobs:
           git checkout dev-build
           git config user.name "Prathm0025"
           git config user.email "prathamesh@underpinservices.com"
-          if [ -f "./index.html Build" ]; then
-            git rm -rf .
+          if [ -f "./index.html" ] || [ -d "./Build" ]; then
+            git rm -rf index.html Build
           else
-            echo "File ./index.js and Build folder does not exist, skipping removal."
+            echo "File ./index.html and Build folder do not exist, skipping removal."
           fi
           git add -f .
           git commit -m "remove old artifacts" || echo "No changes to commit"
